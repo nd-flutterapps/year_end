@@ -79,7 +79,6 @@ class _MyHomePageState extends State<CountdownPage> {
       eventChannel.receiveBroadcastStream().listen((dynamic data) {
         ParsedTime parsedTime = parseMillisToTime(int.parse(data));
 
-        print(parsedTime);
         setState(() {
           currentTime = parsedTime;
           isCurrentTimeInitialized = true;
@@ -102,12 +101,18 @@ class _MyHomePageState extends State<CountdownPage> {
           style: TextStyle(fontFamily: "BlackOpsOne-Regular"),
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[checkTimeElapsed()],
-        ),
-      ),
+      body: Stack(alignment: Alignment.center, children: [
+        // Align(
+        //   alignment: Alignment.topCenter,
+        //   child: LinearProgressIndicator(),
+        // ),
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[checkTimeElapsed()],
+          ),
+        )
+      ]),
     );
   }
 
