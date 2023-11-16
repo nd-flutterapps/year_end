@@ -71,7 +71,8 @@ class YearCountdown: Service() {
         timer!!.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
                 val countdownMillis = calculateTimeUntilYearEnd()
-                sendEventToFlutter(countdownMillis.toString())
+                 sendEventToFlutter(countdownMillis.toString())
+//                sendEventToFlutter(8000.toString())
             }
         }, 1000, 1000)
     }
